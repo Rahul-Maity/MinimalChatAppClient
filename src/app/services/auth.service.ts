@@ -33,4 +33,9 @@ export class AuthService {
     return  localStorage.getItem('authToken');
 
   }
+
+  isLoggedIn(): boolean{
+    return !!localStorage.getItem('authToken');
+  }
+  
 }

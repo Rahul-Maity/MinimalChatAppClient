@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Register } from '../../models/register.model';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +19,7 @@ export class RegisterComponent implements  OnInit {
 
   eyeIcon: string = "fa-eye-slash";
   isText: boolean = false;
-  constructor(private fb:FormBuilder,private auth:AuthService,private router:Router) {
+  constructor(private fb:FormBuilder,private auth:AuthService,private router:Router,private toastr: ToastrService) {
    
     
   }
@@ -55,13 +55,17 @@ export class RegisterComponent implements  OnInit {
           next: (res) => {
             console.log(res);
             this.registerForm.reset();
-           
+            this.toastr.success('registration completed successfully', 'Success', {
+              timeOut: 3000,
+            });
             this.router.navigate(['/login']);
 
           },
           error: (err) => { 
             const errorMessage = err?.error?.message || 'An unknown error occurred.';
-          
+            this.toastr.error(errorMessage, 'Failed', {
+              timeOut: 3000,
+            });
             console.log(errorMessage);
           }
         }

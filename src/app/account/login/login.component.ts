@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import validateForm from '../../helpers/validateForm';
 import { Login } from '../../models/login.model';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit{
   
   constructor(private fb: FormBuilder,
     private auth: AuthService,
-    private router: Router) {
+    private router: Router,private toastr: ToastrService) {
     
     
   }
@@ -43,7 +43,10 @@ export class LoginComponent implements OnInit{
         
         {
           next: (res) => {
-
+            // this.toastr.success('Hello world!', 'Toastr fun!');
+            this.toastr.success('Login completed successfully', 'Success', {
+              timeOut: 3000,
+            });
             this.auth.storeToken(res.token);
             console.log(res);
             this.loginForm.reset();
@@ -53,7 +56,9 @@ export class LoginComponent implements OnInit{
           },
           error: (err) => { 
             const errorMessage = err?.error?.message || 'An unknown error occurred.';
-          
+            this.toastr.error(errorMessage, 'Error', {
+              timeOut: 3000,
+            });
 
 
             console.log(errorMessage);
