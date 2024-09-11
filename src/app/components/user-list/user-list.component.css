@@ -1,71 +1,148 @@
 /* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f4f4f4;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Navbar brand (logo) */
-  .navbar-brand a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  /* Navbar links */
-  .navbar-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .navbar-links li {
-    margin-left: 20px;
-  }
-  
-  .navbar-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-  }
-  
-  .navbar-links a:hover {
-    color: #007bff;
-  }
-  
-  /* User info and logout button */
-  .navbar-user {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-user span {
-    margin-right: 20px;
-    font-size: 16px;
-    color: #555;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  .navbar-user button {
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-right: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  .navbar-user button:hover {
-    background-color: #c0392b;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar brand (logo) */
+.navbar-brand a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Navbar links */
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-links li {
+  margin-left: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.navbar-links a:hover {
+  color: #007bff;
+}
+
+/* User info and logout button */
+.navbar-user {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-user span {
+  margin-right: 20px;
+  font-size: 16px;
+  color: #555;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar-user button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar-user button:hover {
+  background-color: #c0392b;
+}
+
+
+.chat-container {
+  display: flex;
+  height: calc(100vh - 60px); /* Adjust height considering the navbar height */
+  font-family: Arial, sans-serif;
+}
+
+/* User list section (left side) */
+.user-list {
+  width: 25%; /* Takes 30% of the screen width */
+  border-right: 1px solid #ccc; /* Separating line between user list and chat area */
+  background-color: #f4f4f4; /* Light background */
+  padding: 10px;
+  overflow-y: auto; 
+  scrollbar-width: none; 
+}
+
+.user-list::-webkit-scrollbar {
+  display: none;  /* For Chrome, Safari, and Edge */
+}
+
+/* Individual user section */
+.user {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #ddd; /* Line between each user */
+  cursor: pointer;
+}
+
+/* Icon for each user */
+.user-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 50%; /* Circular icon */
+  background-color: #007bff; /* Placeholder background color for the icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+/* User details (name and email) */
+.user-details {
+  flex-grow: 1;
+}
+
+.user-icon{
+  background-color: #8499af;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.user-email {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: #555;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Chat area (right side) */
+.chat-area {
+  width: 75%; /* Takes 70% of the screen width */
+  padding: 20px;
+  background-color: #fff;
+  /* Add your chat area styling here */
+}

@@ -11,3 +11,18 @@
     </div>
   </nav>
   
+
+  <div class="chat-container">
+    <div class="user-list">
+      <div class="user" *ngFor="let user of users" (click)="onUserClick(user.id)">
+        <img src="../../../assets/user-1.png" alt="User Icon" class="user-icon">
+        <div class="user-details">
+          <p class="user-name">{{ user.name }}</p>
+          <p class="user-email">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="chat-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

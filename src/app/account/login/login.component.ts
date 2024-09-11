@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit{
 
   onLogin()
   {
+    console.log('click');
+    
     if (this.loginForm.valid)
     {
       const loginData: Login = {

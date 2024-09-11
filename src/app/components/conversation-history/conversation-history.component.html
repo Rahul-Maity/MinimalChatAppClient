@@ -1,0 +1,21 @@
+
+
+<div class="messages-container" (scroll)="onScroll($event)">
+  <div *ngFor="let message of messages" class="message">
+    <div class="message-content">{{ message.content }}</div>
+    <div class="message-timestamp">{{ message.timestamp | date:'short' }}</div>
+  </div>
+</div>
+
+<!-- Message input area -->
+<div class="message-input-container">
+  <textarea [(ngModel)]="newMessageContent" 
+            placeholder="Type your message..." 
+            class="message-input" 
+            rows="3"></textarea>
+  <button (click)="sendMessage()" 
+          [disabled]="isSending" 
+          class="send-button">
+    Send
+  </button>
+</div>
